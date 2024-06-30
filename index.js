@@ -7,9 +7,6 @@ const port = 3000;
 const API_URL = "https://opentdb.com/api.php";
 const trivia_category_URL = "https://opentdb.com/api_category.php";
 
-// let categoryID;
-// const CategoryInfoURL =`https://opentdb.com/api_count.php?category=${categoryID}`;
-
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -56,7 +53,7 @@ app.post("/generate", async (req, res) => {
 
     // console.log(question1);
     // console.log(correctAnswer1);
-
+ //-------------------------------------
     const answerChoices = [];
 
     const numberOfIncorrectAnswers = triviaBank[0].incorrect_answers.length;
@@ -68,6 +65,7 @@ app.post("/generate", async (req, res) => {
     }
 
     // console.log(answerChoices);
+     //-------------------------------------
 
     const answerChoicesNew = [];
 
@@ -79,12 +77,11 @@ app.post("/generate", async (req, res) => {
 
     //-------------------------------------
 
-    res.render("index.ejs", {
-      
-      
+    res.render("index.ejs", {    
       categoryOption: triviaCategory,
 
       category: category1,
+    
       question: question1,
       correctAnswer: correctAnswer1,
       listOfAnswers: answerChoicesNew,
