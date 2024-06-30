@@ -41,19 +41,11 @@ app.post("/generate", async (req, res) => {
 
     const respond2 = await axios.get(trivia_category_URL);
     const triviaCategory = respond2.data.trivia_categories;
-
-    //-------------------------------------------------------
-    
+   
 
     res.render("index.ejs", {    
       categoryOption: triviaCategory,
       triviaBankSelected: triviaBank,
-
-      // category: category1,
-      // question: question1,
-      // correctAnswer: correctAnswer1,
-      // listOfAnswers: answerChoicesNew,
-      // difficulty: difficulty1,
     });
   } catch (error) {
     res.status(500);
