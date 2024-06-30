@@ -29,7 +29,7 @@ app.get("/", async (req, res) => {
 //-------------------------------------------------------------
 
 app.post("/generate", async (req, res) => {
-  const amount = 1;
+  const amount = 12;
   const category = req.body.category;
   const difficulty = req.body.difficulty;
   const questionType = "multiple";
@@ -37,57 +37,23 @@ app.post("/generate", async (req, res) => {
 
   try {
     const respond = await axios.get(filterUrl);
-
     const triviaBank = respond.data.results;
-
 
     const respond2 = await axios.get(trivia_category_URL);
     const triviaCategory = respond2.data.trivia_categories;
 
-    // console.log(triviaBank);
-    const numberOftriviaBankQuestions = triviaBank.length;
-
-    const category1 = triviaBank[0].category;
-    const question1 = triviaBank[0].question;
-    const correctAnswer1 = triviaBank[0].correct_answer;
-    const difficulty1 = triviaBank[0].difficulty;
-
+    //-------------------------------------------------------
     
-
-    // console.log(question1);
-    // console.log(correctAnswer1);
- //-------------------------------------
-    const answerChoices = [];
-
-    const numberOfIncorrectAnswers = triviaBank[0].incorrect_answers.length;
-
-    answerChoices.push(correctAnswer1);
-
-    for (let i = 0; i < numberOfIncorrectAnswers; i++) {
-      answerChoices.push(triviaBank[0].incorrect_answers[i]);
-    }
-
-    // console.log(answerChoices);
-     //-------------------------------------
-
-    const answerChoicesNew = [];
-
-    while (answerChoices.length > 0) {
-      const randomSelection = Math.floor(Math.random() * answerChoices.length);
-      const randomPop = answerChoices.pop(randomSelection);
-      answerChoicesNew.push(randomPop);
-    }
-
-    //-------------------------------------
 
     res.render("index.ejs", {    
       categoryOption: triviaCategory,
+      triviaBankSelected: triviaBank,
 
-      category: category1,
-      question: question1,
-      correctAnswer: correctAnswer1,
-      listOfAnswers: answerChoicesNew,
-      difficulty: difficulty1,
+      // category: category1,
+      // question: question1,
+      // correctAnswer: correctAnswer1,
+      // listOfAnswers: answerChoicesNew,
+      // difficulty: difficulty1,
     });
   } catch (error) {
     res.status(500);
