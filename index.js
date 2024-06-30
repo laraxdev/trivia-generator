@@ -50,6 +50,9 @@ app.post("/generate", async (req, res) => {
     const category1 = triviaBank[0].category;
     const question1 = triviaBank[0].question;
     const correctAnswer1 = triviaBank[0].correct_answer;
+    const difficulty1 = triviaBank[0].difficulty;
+
+    
 
     // console.log(question1);
     // console.log(correctAnswer1);
@@ -81,10 +84,10 @@ app.post("/generate", async (req, res) => {
       categoryOption: triviaCategory,
 
       category: category1,
-    
       question: question1,
       correctAnswer: correctAnswer1,
       listOfAnswers: answerChoicesNew,
+      difficulty: difficulty1,
     });
   } catch (error) {
     res.status(500);

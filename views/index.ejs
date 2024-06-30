@@ -62,11 +62,15 @@
 
 
 <%if(locals.category){%>
-        <div>Category: <%-category%></div>
-        
+  
+    <div>
+        <div><h3>Category: <%-category%></h3></div>
+        <div><h3>Difficulty: <%-difficulty%></h3></div>        
+    </div>
    
 
 <!--------------accordion--------------------------->
+<div class="container">
 <div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header">
@@ -109,7 +113,7 @@
   </div>
 
 </div>
-
+</div>
 
 <%}%>
 <!----------------------------------------->
