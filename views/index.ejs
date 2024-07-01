@@ -118,10 +118,10 @@
                         <div>
                           <ul>
                             <li>
-                              <%for (let i = 0; i < answerChoicesNew.length; i++) {%>
+                              <%for (let a = 0; a < answerChoicesNew.length; a++) {%>
                     
-                                  <input type="radio" name="userAnswer" id="<%-answerChoicesNew[i]%>" value="<%-answerChoicesNew[i]%>" />
-                                  <label for="<%-answerChoicesNew[i]%>"><%-answerChoicesNew[i]%></label> <br>
+                                  <input type="radio" name="userAnswer" id="Question<%=i+1%>-<%-answerChoicesNew[a]%>" value="<%-answerChoicesNew[a]%>" />
+                                  <label for="Question<%=i+1%>-<%-answerChoicesNew[a]%>"><%-answerChoicesNew[a]%></label> <br>
                     
                               <% } %>
                             </li>  
