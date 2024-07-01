@@ -103,14 +103,14 @@
           }%>
        
           <div class="col-lg-4 col-md-6 col-sm-12 my-3">           
-            <div class="accordion" id="accordionPanelsStayOpenExample">
+            <div class="accordion" id="Question<%=i+1%>-accordionPanelsStayOpen">
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#Question<%=i+1%>-panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="Question<%=i+1%>-panelsStayOpen-collapseOne">
                     Question #<%=i+1%>
                   </button>
                 </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                <div id="Question<%=i+1%>-panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                   <div class="accordion-body">
                     <div><strong><%-triviaBankSelected[i].question%></strong></div>
                     <form>
@@ -134,11 +134,11 @@
               </div>
               <div class="accordion-item">
                 <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Question<%=i+1%>-panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="Question<%=i+1%>-panelsStayOpen-collapseTwo">
                     Correct answer
                   </button>
                 </h2>
-                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                <div id="Question<%=i+1%>-panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
                   <div class="accordion-body">
                     <strong><%-triviaBankSelected[i].correct_answer%></strong>
                   </div>
