@@ -25,7 +25,7 @@ app.get("/", async (req, res) => {
     });
 
   } catch (error) {
-    console.log(error.response.data);
+    
     res.status(500);    
   }
 });
@@ -54,7 +54,7 @@ app.post("/generate", async (req, res) => {
     });
 
   } catch (error) {
-    console.log(error.response.data);
+    
     res.status(500);    
   }
 });
