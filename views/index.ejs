@@ -113,21 +113,22 @@
                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
                   <div class="accordion-body">
                     <div><strong><%-triviaBankSelected[i].question%></strong></div>
-
-                    <ul>
-                      <li>
-              
-                        <%for (let i = 0; i < answerChoicesNew.length; i++) {%>
-              
-                            <input type="radio" name="userAnswer" id="Question-<%-i+1%>" value="" />
-                            <label for="Question-<%-i+1%>"><%-answerChoicesNew[i]%></label> <br>
-              
-                        <% } %>
-              
-                      </li>
-                    </ul>
+                    <form>
+                      <fieldset>                        
+                        <div>
+                          <ul>
+                            <li>
+                              <%for (let i = 0; i < answerChoicesNew.length; i++) {%>
                     
+                                  <input type="radio" name="userAnswer" id="<%-answerChoicesNew[i]%>" value="<%-answerChoicesNew[i]%>" />
+                                  <label for="<%-answerChoicesNew[i]%>"><%-answerChoicesNew[i]%></label> <br>
                     
+                              <% } %>
+                            </li>  
+                          </ul>    
+                        </div>
+                      </fieldset>
+                    </form>
                   </div>
                 </div>
               </div>
