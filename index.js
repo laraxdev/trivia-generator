@@ -12,21 +12,25 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-//-------------------------------------------------------------
-app.get("/", async (req, res) => {
+//--------app-get-----------------------------------------------
+
+app.get("/", async (req, res) => { 
+
   try {
     const respond = await axios.get(trivia_category_URL);
-    const triviaCategory = respond.data.trivia_categories;
+    const triviaCategory = respond.data.trivia_categories;  
    
-    res.render("index.ejs", {
+    res.render("index.ejs", {     
       categoryOption: triviaCategory,
     });
+
   } catch (error) {
-    res.status(500);
+    console.log(error.response.data);
+    res.status(500);    
   }
 });
 
-//-------------------------------------------------------------
+//-------app-post-----------------------------------------------------
 
 app.post("/generate", async (req, res) => {
   const amount = 12;
@@ -44,13 +48,18 @@ app.post("/generate", async (req, res) => {
    
 
     res.render("index.ejs", {    
+      numberOfQuestions: triviaBank.length,
       categoryOption: triviaCategory,
       triviaBankSelected: triviaBank,
     });
+
   } catch (error) {
-    res.status(500);
+    console.log(error.response.data);
+    res.status(500);    
   }
 });
+
+//--------app-listen-----------------------------------------------------
 
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
